@@ -1,3 +1,20 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+body {
+    @apply bg-black text-white/70 relative;
+}
+body::after{
+    width: 100%;
+    height: 100%;
+    content: '';
+    position: fixed;
+    z-index: -1;
+    background: radial-gradient(75.61% 75.61% at 50% 24.39%, rgba(180, 83, 9, 0.2) 0%, rgba(180, 83, 9, 0) 100%);
+};
+@layer base {
+    .container{
+        @apply max-w-5xl mx-auto px-5;
+    }
+}
