@@ -5,7 +5,7 @@
 body {
     @apply bg-black text-white/70 relative;
 }
-body::after{
+body::before{
     width: 100%;
     height: 100%;
     content: '';
@@ -16,5 +16,8 @@ body::after{
 @layer base {
     .container{
         @apply max-w-5xl mx-auto px-5;
+    };
+    .btn-yellow{
+        @apply bg-gradient-to-r from-yellow-400 to-yellow-600 px-4 py-2 rounded-full text-white/80;
     }
 }
