@@ -11,7 +11,7 @@ body::before{
     content: '';
     position: fixed;
     z-index: -1;
-    background: radial-gradient(75.61% 75.61% at 50% 24.39%, rgba(180, 83, 9, 0.2) 0%, rgba(180, 83, 9, 0) 100%);
+    background: radial-gradient(75.61% 75.61% at 50% 24.39%, rgba(180, 83, 9, 0.4) 0%, rgba(180, 83, 9, 0) 100%);
 };
 @layer base {
     .container{
@@ -19,5 +19,12 @@ body::before{
     };
     .btn-yellow{
         @apply bg-gradient-to-r from-yellow-400 to-yellow-600 px-4 py-2 rounded-full text-white/80;
+    };
+    input[type="text"], input[type="email"], input[type="password"] {
+        @apply w-full py-1 px-2 bg-transparent border-2 border-white/30 rounded-lg;
+    };
+    form label {
+        @apply my-1 text-white/70 text-sm block;
     }
-}
+};
+

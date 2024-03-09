@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     },
   },
   css: ['./assets/css/main.css'],
-  modules: ['@nuxtjs/supabase'],
+  modules: ['@nuxtjs/supabase', 'nuxt-icon'],
   supabase: {
     redirect: false
   }
