@@ -25,6 +25,9 @@ body::before{
     };
     form label {
         @apply my-1 text-white/70 text-sm block;
+    };
+    .mycard {
+        @apply min-w-[350px] bg-white/5 rounded-lg shadow-lg p-5 border border-white/10 backdrop-blur-md;
     }
 };
 

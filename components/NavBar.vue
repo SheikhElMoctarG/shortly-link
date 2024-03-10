@@ -5,7 +5,7 @@
       <ul class="flex gap-4 items-center ">
         <li>Price</li>
         <li>Price</li>
-        <button class="btn-yellow">Sign In</button>
+        <NuxtLink to="/auth" class="btn-yellow">Sign In</NuxtLink>
       </ul>
     </nav>
   </div>

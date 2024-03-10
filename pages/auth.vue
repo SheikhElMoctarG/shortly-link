@@ -1,7 +1,7 @@
 <template>
   <div class="h-screen grid place-content-center">
     <div class="container">
-      <div class="min-w-[350px] bg-white/5 rounded-lg shadow-lg p-5 border border-white/10 backdrop-blur-md">
+      <div class="mycard">
         <div class="flex justify-center py-2">
           <Icon name="arcticons:otp-authenticator" size="45" class="text-white/90"/>
         </div>
