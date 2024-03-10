@@ -22,7 +22,7 @@
     </section>
     
     <section class="mt-[2rem]">
-      <LinkComponent/>
+      <LinkComponent v-for="item in 5" :key="item" :link="{shortkey: 'shsdfsf', orginalURL: 'https://sheikhelmoctar.me',id: '444'}"/>
     </section>
   </main>
 </template>
