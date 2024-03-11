@@ -9,8 +9,13 @@
     "preview": "nuxt preview",
     "postinstall": "nuxt prepare"
   },
+  "prisma": {
+    "seed": "node prisma/seed.js"
+  },
   "dependencies": {
+    "@prisma/client": "^5.10.2",
     "nuxt": "^3.10.3",
+    "prisma": "^5.10.2",
     "vue": "^3.4.21",
     "vue-router": "^4.3.0"
   },
