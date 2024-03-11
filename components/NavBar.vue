@@ -5,14 +5,16 @@
       <ul class="flex gap-4 items-center ">
         <li>About us</li>
         <li>Our services</li>
-        <NuxtLink to="/auth" class="btn-yellow">Sign In</NuxtLink>
+        <NuxtLink v-if="!user" to="/auth" class="btn-yellow">Sign In</NuxtLink>
+        <button v-else @click="client.auth.signOut(); navigateTo('/')">Logout</button>
       </ul>
     </nav>
   </div>
 </template>
 
 <script lang="ts" setup>
-
+const user = useSupabaseUser();
+const client = useSupabaseClient();
 </script>
 
 <style>
