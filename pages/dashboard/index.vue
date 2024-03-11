@@ -32,7 +32,7 @@ import { nanoid } from 'nanoid';
 import type { Database } from '../../types/supabase';
 const client = useSupabaseClient<Database>();
 const {data:myLinks} = await client.from('links').select('*').eq('user_id', useSupabaseUser().value.id);
-const { data } = useAsyncData('links', async()=> {
+const { data, refresh } = useAsyncData('links', async()=> {
     const {data, error} = await client.from('links').select('*').eq('user_id', useSupabaseUser().value.id);
     return data;
   });
@@ -60,7 +60,9 @@ async function createShortKey() {
       return;
     } 
     alert('created successfully');
-    form.short_key = nanoid(6)
+    form.short_key = nanoid(6);
+    form.orginal_url = '';
+    await refresh()
   }
 
 </script>
