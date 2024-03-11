@@ -22,7 +22,7 @@
     </section>
     
     <section class="mt-[2rem]">
-      <LinkComponent v-for="item in 5" :key="item" :link="{shortkey: 'shsdfsf', orginalURL: 'https://sheikhelmoctar.me',id: '444'}"/>
+      <LinkComponent v-for="item in data" :key="item.id" :link="{shortkey: item.short_key, orginalURL: item.orginal_url || '', id: item.id}"/>
     </section>
   </main>
 </template>
@@ -31,6 +31,12 @@
 import { nanoid } from 'nanoid';
 import type { Database } from '../../types/supabase';
 const client = useSupabaseClient<Database>();
+const {data:myLinks} = await client.from('links').select('*').eq('user_id', useSupabaseUser().value.id);
+const { data } = useAsyncData('links', async()=> {
+    const {data, error} = await client.from('links').select('*').eq('user_id', useSupabaseUser().value.id);
+    return data;
+  });
+  console.log({data})
 definePageMeta({
   middleware: 'auth'
 });
@@ -53,8 +59,9 @@ async function createShortKey() {
       alert(error.message);
       return;
     } 
-    alert('created successfully')
-}
+    alert('created successfully');
+    form.short_key = nanoid(6)
+  }
 
 </script>
 

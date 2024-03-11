@@ -11,5 +11,10 @@ export default defineNuxtConfig({
   modules: ['@nuxtjs/supabase', 'nuxt-icon'],
   supabase: {
     redirect: false
+  },
+  runtimeConfig: {
+    public: {
+      app_url: process.env.URL
+    }
   }
 })
