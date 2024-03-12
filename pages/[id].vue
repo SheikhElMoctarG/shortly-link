@@ -24,12 +24,12 @@ const { data } = useAsyncData('link', async () => {
 if (data.value?.orginal_url) {
     const ua = useUserAgent();
     // const ip = "41.223.96.45";
-    if(ua && ua.ip){
-      const ip_info = await $fetch(`/api/get-ip-info/${ua.ip}`);
+    if(true){
+      const ip_info = await $fetch(`/api/get-ip-info/${ua?.ip}`);
       const {data:mydata, error} = await client.from('clicks').insert({
           city: ip_info?.city,
           country: ip_info?.country,
-          ip: ua.ip,
+          ip: ua.ip ,
           link_id: data.value?.id,
           user_agient: ua.userAgent
       });
