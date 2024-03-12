@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-import geoip from 'geoip-lite';
 const params = useRoute().params;
 const client = useSupabaseClient();
 if (!params.id) {
@@ -23,7 +22,8 @@ const { data } = useAsyncData('link', async () => {
 });
 if (data.value?.orginal_url) {
     const ua = useUserAgent();
-    console.log('lookup', geoip.lookup("207.97.227.239"));
+
+    console.log('lookup', await useFetch(`/api/get-ip-info/${ua?.ip}`));
     useExternalRedirect(data.value.orginal_url);
   }
 
