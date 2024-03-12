@@ -1,10 +1,11 @@
 <template>
-  <div>
-
+  <div class="pt-[200px]">
+    {{ myserver }}
   </div>
 </template>
 
 <script lang="ts" setup>
+const myserver = process.server;
 const params = useRoute().params;
 import type { Database } from '~/types/supabase';
 const client = useSupabaseClient<Database>();

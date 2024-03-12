@@ -16,5 +16,5 @@ export default defineNuxtConfig({
     public: {
       app_url: process.env.URL
     }
-  },
+  }
 })

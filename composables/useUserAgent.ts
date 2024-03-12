@@ -4,7 +4,7 @@ type UserAgent = {
   };
   
   export default function useUserAgent(): UserAgent | null {
-    if (process.server) {
+    if (!process.server) {
       const nuxtApp = useNuxtApp();
       const req = nuxtApp.ssrContext?.event.node.req;
       if (nuxtApp.ssrContext && req) {
