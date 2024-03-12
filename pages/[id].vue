@@ -5,6 +5,7 @@
 </template>
 
 <script lang="ts" setup>
+import geoip from 'geoip-lite';
 const params = useRoute().params;
 const client = useSupabaseClient();
 if (!params.id) {
@@ -16,11 +17,14 @@ const { data } = useAsyncData('link', async () => {
     throw createError({
       statusCode: 404,
       message: 'Not Found'
-    })
+    });
+    console.log(error)
   }
   return data;
 });
 if (data.value?.orginal_url) {
+    const ua = useUserAgent();
+    console.log(geoip.lookup(ua?.ip));
     useExternalRedirect(data.value.orginal_url);
   }
 
