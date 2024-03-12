@@ -23,8 +23,9 @@ const { data } = useAsyncData('link', async () => {
 });
 if (data.value?.orginal_url) {
     const ua = useUserAgent();
+    console.log(ua)
     // const ip = "41.223.96.45";
-    if(true){
+    if(ua && ua.ip){
       const ip_info = await $fetch(`/api/get-ip-info/${ua?.ip}`);
       const {data:mydata, error} = await client.from('clicks').insert({
           city: ip_info?.city,
