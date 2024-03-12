@@ -33,6 +33,7 @@ if (data.value?.orginal_url) {
           link_id: data.value?.id,
           user_agient: ua.userAgent
       });
+      await useExternalRedirect(data.value.orginal_url);
       if(error){
         console.log(error)
       } else {
@@ -41,7 +42,7 @@ if (data.value?.orginal_url) {
     }
     
     // console.log("I'm ready to launch ")
-    useExternalRedirect(data.value.orginal_url);
+    
   }
 
 </script>
