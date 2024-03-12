@@ -18,13 +18,12 @@ const { data } = useAsyncData('link', async () => {
       statusCode: 404,
       message: 'Not Found'
     });
-    console.log(error)
   }
   return data;
 });
 if (data.value?.orginal_url) {
     const ua = useUserAgent();
-    console.log(geoip.lookup(ua?.ip));
+    console.log('lookup', geoip.lookup("207.97.227.239"));
     useExternalRedirect(data.value.orginal_url);
   }
 
