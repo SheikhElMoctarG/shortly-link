@@ -1,4 +1,4 @@
-type UserAgent {
+type UserAgent = {
     userAgent: string;
     ip?: string;
 };
