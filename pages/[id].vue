@@ -1,7 +1,5 @@
 <template>
-  <div class="pt-[200px]">
-    {{ myserver }}
-  </div>
+  <div></div>
 </template>
 
 <script lang="ts" setup>
@@ -27,10 +25,9 @@ if (data.value?.orginal_url) {
     console.log(ua)
     // const ip = "41.223.96.45";
     if(ua && ua.ip){
-      const ip_info = await $fetch(`/api/get-ip-info/${ua?.ip}`);
       const {data:mydata, error} = await client.from('clicks').insert({
-          city: ip_info?.city,
-          country: ip_info?.country,
+          city: ua?.city,
+          country: ua?.country,
           ip: ua.ip ,
           link_id: data.value?.id,
           user_agient: ua.userAgent
