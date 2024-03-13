@@ -22,7 +22,7 @@
     </section>
     
     <section class="mt-[2rem]">
-      <LinkComponent v-for="item in data" :key="item.id" :link="{shortkey: item.short_key, orginalURL: item.orginal_url || '', id: item.id}"/>
+      <LinkComponent v-for="item in data" :key="item.id" :link="{shortkey: item.short_key, orginalURL: item.orginal_url || '', id: item.id, total_clicks: item.total_clicks}"/>
     </section>
   </main>
 </template>

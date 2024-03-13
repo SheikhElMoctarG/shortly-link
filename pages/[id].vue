@@ -1,5 +1,7 @@
 <template>
-  <div></div>
+  <div class="py-[100px] flex justify-center font-bold text-lg capitalize">
+    wait some seconds, we will redirect you automatic
+  </div>
 </template>
 
 <script lang="ts" setup>
@@ -30,7 +32,7 @@ if (data.value?.orginal_url) {
           link_id: data.value?.id,
           user_agient: ua.userAgent
       });
-      await useExternalRedirect(data.value.orginal_url);
+      // await useExternalRedirect(data.value.orginal_url);
       if(error){
         console.log(error)
       } else {
