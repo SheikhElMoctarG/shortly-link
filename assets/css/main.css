@@ -5,7 +5,7 @@
 @tailwind utilities;
 
 body {
-    @apply bg-black text-white/70 relative;
+    @apply bg-white text-slate-900/70 relative;
     font-family: "Kanit", sans-serif;
 }
 body::before{
@@ -24,13 +24,13 @@ body::before{
         @apply bg-gradient-to-r from-yellow-400 to-yellow-600 px-4 py-2 rounded-full text-white/80;
     };
     input[type="text"], input[type="email"], input[type="password"] {
-        @apply w-full py-1 px-2 bg-transparent border-2 border-white/30 rounded-lg;
+        @apply w-full py-1 px-2 bg-transparent border-2 border-black/30 rounded-lg;
     };
     form label {
-        @apply my-1 text-white/70 text-sm block;
+        @apply my-1 text-black/70 text-sm block;
     };
     .mycard {
-        @apply min-w-[350px] bg-white/5 rounded-lg shadow-lg p-5 border border-white/10 backdrop-blur-md;
+        @apply min-w-[350px] bg-black/5 rounded-lg shadow-lg p-5 border border-white/10 backdrop-blur-md;
     }
 };
 

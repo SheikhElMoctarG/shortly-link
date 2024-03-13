@@ -22,8 +22,6 @@ const { data } = useAsyncData('link', async () => {
 });
 if (data.value?.orginal_url) {
     const ua = await useUserAgent();
-    console.log(ua)
-    // const ip = "41.223.96.45";
     if(ua && ua.ip){
       const {data:mydata, error} = await client.from('clicks').insert({
           city: ua?.city,
