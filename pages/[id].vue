@@ -5,7 +5,6 @@
 </template>
 
 <script lang="ts" setup>
-const myserver = process.server;
 const params = useRoute().params;
 import type { Database } from '~/types/supabase';
 const client = useSupabaseClient<Database>();
@@ -32,7 +31,7 @@ if (data.value?.orginal_url) {
           link_id: data.value?.id,
           user_agient: ua.userAgent
       });
-      // await useExternalRedirect(data.value.orginal_url);
+      await useExternalRedirect(data.value.orginal_url);
       if(error){
         console.log(error)
       } else {

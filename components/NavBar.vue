@@ -3,8 +3,6 @@
     <nav class="container py-4 flex justify-between items-center">
       <NuxtLink to="/" class="text-2xl font-bold">Shortly-Link</NuxtLink>
       <ul class="flex gap-4 items-center ">
-        <li>About us</li>
-        <li>Our services</li>
         <NuxtLink v-if="!user" to="/auth" class="btn-yellow">Sign In</NuxtLink>
         <button v-else @click="client.auth.signOut(); navigateTo('/')">Logout</button>
       </ul>
