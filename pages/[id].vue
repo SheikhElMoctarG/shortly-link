@@ -23,7 +23,7 @@ const { data } = useAsyncData('link', async () => {
   return data;
 });
 if (data.value?.orginal_url) {
-    const ua = useUserAgent();
+    const ua = await useUserAgent();
     console.log(ua)
     // const ip = "41.223.96.45";
     if(ua && ua.ip){

@@ -1,31 +1,21 @@
+import axios from 'axios';
 type UserAgent = {
     userAgent: string;
     ip?: string;
-  };
-  
-  export default function useUserAgent(): UserAgent | null {
-    if (!process.server) {
-      const nuxtApp = useNuxtApp();
-      const req = nuxtApp.ssrContext?.event.node.req;
-      if (nuxtApp.ssrContext && req) {
-        const ip =
-          req.headers["x-forwarded-for"] ||
-          req.socket.remoteAddress;
-  
-        const ua = req.headers["user-agent"];
-  
-        return {
-          userAgent: ua || "",
-          ip: typeof ip === "string" ? ip : ip?.[0],
-        };
-      }
-    } else {
-        console.log(process.server)
-      const ua = navigator.userAgent;
-      return {
-        userAgent: ua
-      };
-    }
-    
-    return null;
-  }
+};
+
+export default async function useUserAgent(): Promise<UserAgent | null> {
+
+    console.log(process.server)
+    const ua = navigator.userAgent;
+    return {
+        userAgent: ua,
+        ip: await getIP()
+    };
+
+    // return null;
+}
+
+async function getIP(){
+    return (await axios.get("https://api.ipify.org/?format=json")).data.ip
+}
