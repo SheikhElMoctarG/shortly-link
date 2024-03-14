@@ -22,7 +22,7 @@
     </section>
     
     <section class="mt-[2rem]">
-      <LinkComponent v-for="item in data" :key="item.id" :link="{shortkey: item.short_key, orginalURL: item.orginal_url || '', id: item.id, total_clicks: item.total_clicks}"/>
+      <LinkComponent v-for="item in data" :key="item.id" :link="{shortkey: item.short_key, orginalURL: item.orginal_url || '', id: item.id, total_clicks: item.total_clicks, created_at: item.created_at}"/>
     </section>
   </main>
 </template>
@@ -33,10 +33,9 @@ import { nanoid } from 'nanoid';
 import type { Database } from '../../types/supabase';
 const client = useSupabaseClient<Database>();
 const { data, refresh } = useAsyncData('links', async()=> {
-    const {data, error} = await client.from('links').select('*').eq('user_id', useSupabaseUser().value.id);
+    const {data, error} = await client.from('links').select('*').eq('user_id', useSupabaseUser().value.id).order('created_at', {ascending:false});
     return data;
   });
-  console.log({data})
 definePageMeta({
   middleware: 'auth'
 });
