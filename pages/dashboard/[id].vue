@@ -54,6 +54,7 @@ definePageMeta({
 });
 const { data } = await useAsyncData('link', async () => {
   const { data, error } = await client.from('links').select('*').eq('user_id', useSupabaseUser().value?.id).eq('short_key', useRoute().params.id).single();
+  console.log({ data, error})
   const { data: my_views } = await client.from('clicks').select('*').eq('link_id', data?.id);
   return { data, my_views };
 });
