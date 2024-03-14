@@ -8,7 +8,7 @@ export default defineNuxtConfig({
     },
   },
   css: ['./assets/css/main.css'],
-  modules: ['@nuxtjs/supabase', '@nuxt/ui'],
+  modules: ['@nuxtjs/supabase', '@nuxt/ui', 'nuxt-gtag'],
   supabase: {
     redirect: false
   },
@@ -16,5 +16,8 @@ export default defineNuxtConfig({
     public: {
       app_url: process.env.URL
     }
+  },
+  gtag: {
+    id: 'G-YFYYYD3QKV'
   }
 })
