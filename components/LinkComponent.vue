@@ -1,7 +1,7 @@
 <template>
   <div class="mycard my-2 flex items-center justify-between">
     <div>
-      <h1 class="text-2xl text-yellow-500 font-bold">/{{link.shortkey}}</h1>
+      <NuxtLink :to="`/dashboard/${link.shortkey}`" class="text-2xl text-yellow-500 font-bold">/{{link.shortkey}}</NuxtLink>
       <p class="text-black/40">{{link.orginalURL.slice(0, 35) + '...'}}</p>
     </div>
     <div class="flex items-center gap-3">
