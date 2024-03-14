@@ -1,5 +1,5 @@
 <template>
-  <div class="py-[100px] flex justify-center font-bold text-lg capitalize">
+  <div class="py-[100px] flex justify-center font-bold text-lg capitalize container mx-auto">
     wait some seconds, we will redirect you automatic
   </div>
 </template>

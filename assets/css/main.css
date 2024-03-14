@@ -30,7 +30,8 @@ body::before{
         @apply my-1 text-black/70 text-sm block;
     };
     .mycard {
-        @apply min-w-[350px] bg-black/5 rounded-lg shadow-lg p-5 border border-white/10 backdrop-blur-md;
+        background-color: rgb(0 0 0 / 0.03);
+        @apply min-w-[350px] rounded-lg shadow-lg p-5 border border-black/10 backdrop-blur-md;
     }
 };
 
