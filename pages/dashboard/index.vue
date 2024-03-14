@@ -28,6 +28,7 @@
 </template>
 
 <script lang="ts" setup>
+const toast = useToast();
 import { nanoid } from 'nanoid';
 import type { Database } from '../../types/supabase';
 const client = useSupabaseClient<Database>();
@@ -55,10 +56,10 @@ async function createShortKey() {
       total_clicks: 0
     });
     if(error){
-      alert(error.message);
+      toast.add({title: error.message, color: 'red'})
       return;
-    } 
-    alert('created successfully');
+    }
+    toast.add({title: 'created successfully'})
     form.short_key = nanoid(6);
     form.orginal_url = '';
     await refresh()

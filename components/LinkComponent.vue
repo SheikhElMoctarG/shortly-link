@@ -15,6 +15,7 @@
 </template>
 
 <script lang="ts" setup>
+const toast = useToast();
 const props = defineProps<{
   link: {
     shortkey: string,
@@ -25,7 +26,7 @@ const props = defineProps<{
 }>();
 const  handlerCopy = async()=> {
   await navigator.clipboard.writeText(`${useRuntimeConfig().public.app_url}/${props.link.shortkey}`);
-  await alert('copied!');
+  toast.add({title: 'Copied successfully', color: 'blue'});
 }
 </script>
 

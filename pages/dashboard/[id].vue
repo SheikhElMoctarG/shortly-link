@@ -35,7 +35,7 @@
           <p>{{ info.country }} ({{ info.city }})</p>
         </div>
         <div>
-          <p>{{  moment(info.created_at).format('MMMM Do YYYY, h:mm:ss a') }}</p>
+          <p>{{  moment(info.created_at).format('MMMM Do YYYY, HH:mm') }}</p>
           <p class="truncate">{{ info.user_agient.slice(0, 30)+ ".." }}</p>
         </div>
       </div>
@@ -44,6 +44,7 @@
 </template>
 
 <script lang="ts" setup>
+const toast = useToast();
 import moment from 'moment';
 import type { Database } from '~/types/supabase';
 const client = useSupabaseClient<Database>();
@@ -58,6 +59,7 @@ const { data } = await useAsyncData('link', async () => {
 });
 async function copy(text:string) {
   await navigator.clipboard.writeText(text);
+  toast.add({title: 'copied successfully!'});
 }
 </script>
 
