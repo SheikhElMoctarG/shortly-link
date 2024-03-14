@@ -48,7 +48,8 @@ onMounted(()=> {
 });
 
 async function createShortKey() {
-  const {data, error} = await client.from('links').insert({
+  if(form.orginal_url != '' && form.orginal_url.length >=5 && form.short_key != '' && form.short_key.length >=5){
+    const {data, error} = await client.from('links').insert({
       short_key: form.short_key,
       orginal_url: form.orginal_url,
       user_id: useSupabaseUser().value?.id,
@@ -62,7 +63,10 @@ async function createShortKey() {
     form.short_key = nanoid(6);
     form.orginal_url = '';
     await refresh()
+  } else { 
+    toast.add({title: 'there is error in form, check it', color: 'red'})
   }
+}
 
 </script>
 

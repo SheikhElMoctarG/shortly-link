@@ -1,6 +1,7 @@
 <template>
   <div class="pt-[90px] container mx-auto">
-    <h2 class="capitalize text-2xl font-semibold text-black">statistics</h2>
+    <div v-if="data?.data != null">
+      <h2 class="capitalize text-2xl font-semibold text-black">statistics</h2>
     <div class="flex items-center gap-1">
       <h1 class="font-semibold text-xl my-2 text-yellow-600 ">/{{ data?.data?.short_key }}</h1>
       <div
@@ -40,6 +41,10 @@
         </div>
       </div>
     </div>
+    </div>
+    <div v-else class="text-xl text-red-700 text-center">
+      <h1>you don't have a permissions</h1>
+    </div>
   </div>
 </template>
 
@@ -54,7 +59,6 @@ definePageMeta({
 });
 const { data } = await useAsyncData('link', async () => {
   const { data, error } = await client.from('links').select('*').eq('user_id', useSupabaseUser().value?.id).eq('short_key', useRoute().params.id).single();
-  console.log({ data, error})
   const { data: my_views } = await client.from('clicks').select('*').eq('link_id', data?.id);
   return { data, my_views };
 });
