@@ -1,5 +1,5 @@
 <template>
-  <div class="mycard my-2 flex items-center justify-between shadow-none">
+  <div class="mycard my-2 flex items-center justify-between shadow-none flex-wrap md:flex-nowrap">
     <div>
       <NuxtLink :to="`/dashboard/${link.shortkey}`" class="text-2xl text-yellow-500 font-bold">/{{ link.shortkey }}
       </NuxtLink>

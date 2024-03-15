@@ -13,7 +13,7 @@
     <div>
       {{ moment(data?.data?.created_at).format('MMMM Do YYYY, h:mm:ss a') }}
     </div>
-    <div class="flex items-center gap-3 mt-4 stats">
+    <div class="flex items-center gap-3 mt-4 stats flex-wrap md:flex-nowrap">
       <div class="mycard">
         <h1 class="text-4xl font-bold text-black py-2">{{ data?.data?.total_clicks }}</h1>
         <p class="capitalize">total clicks</p>

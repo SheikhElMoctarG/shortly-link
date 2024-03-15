@@ -6,7 +6,7 @@
     </section>
     <!-- section two  -->
     <section class="mycard my-3">
-      <form class="flex  gap-4" @submit.prevent="createShortKey()">
+      <form class="flex  gap-4 flex-wrap md:flex-nowrap" @submit.prevent="createShortKey()">
         <div class="w-5/12"> 
             <label for="orginalURL">orginal URL</label>
             <input type="text" name="orginalURL" id="orginalURL" placeholder="your url " v-model="form.orginal_url">

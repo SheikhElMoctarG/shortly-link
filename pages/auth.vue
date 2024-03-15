@@ -27,6 +27,10 @@ const isLogining = ref<Boolean>(true);
 function loginWith(prov: string) {
   client.auth.signInWithOAuth({ provider: prov });
 };
+const user = useSupabaseUser();
+if(user.value) {
+    navigateTo('/dashboard');
+  }
 </script>
 
 <style></style>

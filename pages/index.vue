@@ -7,8 +7,11 @@
   </div>
 </template>
 
-<script lang="ts" setup>
-
+<script  lang="ts" setup>
+const user = useSupabaseUser();
+if(user.value) {
+    navigateTo('/dashboard');
+  }
 </script>
 
 <style>
